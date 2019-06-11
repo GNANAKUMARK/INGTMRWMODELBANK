@@ -31,7 +31,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 		LOGGER.debug("inside CustomerDetailsServiceImpl ::getCustomerDetails() customerId: " + customerId);
 		CustomerDetaillsResponse customerDetaillsResponse = new CustomerDetaillsResponse();
 		CustomerDetails customerDetails = customerDetailsRepository.findByCustomerId(customerId);
-		if (customerDetails == null || customerDetails.getId().equals(null)) {
+		if (customerDetails == null || customerDetails.getId()==null ) {
 			throw new DataNotFoundException("NO Customer details found for customerId:" + customerId);
 		}
 

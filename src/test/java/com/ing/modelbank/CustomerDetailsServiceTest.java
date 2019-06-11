@@ -15,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.ing.modelbank.entity.CustomerDetails;
+import com.ing.modelbank.exception.DataNotFoundException;
 import com.ing.modelbank.pojo.CustomerDetaillsResponse;
 import com.ing.modelbank.repository.CustomerDetailsRepository;
 import com.ing.modelbank.service.CustomerDetailsServiceImpl;
@@ -38,8 +39,18 @@ public class CustomerDetailsServiceTest {
 		CustomerDetails customerDetails = new CustomerDetails();
 		customerDetails.setId(1l);
 		Mockito.when(repo.findByCustomerId(Matchers.anyObject())).thenReturn(customerDetails);
-		CustomerDetaillsResponse response = service.getCustomerDetails("2l");
+		CustomerDetaillsResponse response = service.getCustomerDetails("2");
+		assertNotNull(response.getId());
+	}
+	
+	
+	@Test(expected = DataNotFoundException.class)
+	public void getCustomerDetailsException() {
+		CustomerDetails customerDetails = new CustomerDetails();
+		Mockito.when(repo.findByCustomerId(Matchers.anyObject())).thenReturn(customerDetails);
+		CustomerDetaillsResponse response = service.getCustomerDetails("2");
 		assertNotNull(response.getId());
 	}
 
+	
 }
