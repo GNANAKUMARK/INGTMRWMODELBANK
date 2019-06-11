@@ -4,13 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ing.modelbank.entity.Customer;
 import com.ing.modelbank.pojo.LoginRequest;
 import com.ing.modelbank.pojo.LoginResponse;
 import com.ing.modelbank.service.CustomerService;
@@ -26,7 +24,6 @@ public class CustomerController {
 	@PostMapping("/users")
 	public ResponseEntity<LoginResponse> customerLogin(@RequestBody LoginRequest loginRequest){
 		
-	//	Customer customer = new Customer();
 		LoginResponse response = customerService.findByCustomerIdAndPassword(loginRequest);
 		if(response.getStatus().equalsIgnoreCase("LoginSuccessfully") && response.getCustomerId() == loginRequest.getCustomerId()){
 			response.setStatus("Successfully Logged in.....");

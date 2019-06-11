@@ -1,7 +1,6 @@
 package com.ing.modelbank.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
@@ -17,6 +16,10 @@ import lombok.Setter;
 @Setter
 public class CustomerTransactions implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5164418731119302220L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

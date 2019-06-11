@@ -2,8 +2,6 @@ package com.ing.modelbank.controller;
 
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +19,12 @@ import com.ing.modelbank.service.TransactionDetailsService;
 @RestController
 @RequestMapping(path = "/api")
 public class TransactionDetailsController {
-	private static final Logger LOGGER = LogManager.getLogger(TransactionDetailsController.class);
+	
 	@Autowired
 	 TransactionDetailsService transactionDetailsService;
 	@GetMapping(value = "/transactions/{id}")
 	public ResponseEntity<CustomerTransactions> getTransactionDetailsForId(@PathVariable("id") Long id )
-			throws Exception {
+			throws DataNotFoundException {
 		
 		CustomerTransactions response = transactionDetailsService.getTransactionDetailsForId(id);
 		if (response == null || response.getId() <= 0) {
@@ -39,7 +37,7 @@ public class TransactionDetailsController {
 	
 	@GetMapping(value = "/transaction/{customer_Id}")
 	public ResponseEntity<List<CustomerTransactions>> getTransactionDetailsForCustomerId(@PathVariable("customer_Id") String customer_Id )
-			throws Exception {
+			throws DataNotFoundException {
 		
 		List<CustomerTransactions> response = transactionDetailsService.getTransactionDetailsforId(customer_Id);
 		if (response.isEmpty() ) {
