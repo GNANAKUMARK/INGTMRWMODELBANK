@@ -16,6 +16,9 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<sonar.coverage.exclusions>**/com/ing/modelbank/exception/*.java,**/com/ing/modelbank/INGTMRWBankApplication.java,
+			**/com/ing/modelbank/pojo/*.java,**/com/ing/modelbank/repository/*.java,**/com/ing/modelbank/entity/*.java
+		</sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
