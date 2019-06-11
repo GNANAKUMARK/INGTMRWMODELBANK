@@ -16,6 +16,7 @@ import com.ing.modelbank.repository.FundTransferRepository;
 @Service
 public class FundTransferServiceImpl implements FundTransferService {
 
+	private static final Random random = new Random();
 	@Autowired
 	FundTransferRepository repository;
 	
@@ -39,8 +40,8 @@ public class FundTransferServiceImpl implements FundTransferService {
 		transaction.setToAccount(request.getBeneficiaryId());
 		transaction.setAmount(request.getAmount());
 		transaction.setComments(request.getRemarks());
-		Random random = new Random();
-		long referenceId = 10000000 + random.nextInt(900000);
+		
+		Long referenceId = (long) (10000000 + random.nextInt(900000));
 		transaction.setReferenceId(referenceId);
 		CustomerTransactions transaction1=repository.save(transaction);
 		detail.setBalance(detail.getBalance()-transaction.getAmount());

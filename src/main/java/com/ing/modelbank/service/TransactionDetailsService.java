@@ -3,6 +3,8 @@
  */
 package com.ing.modelbank.service;
 
+import java.util.List;
+
 import com.ing.modelbank.entity.CustomerTransactions;
 
 /**
@@ -12,4 +14,6 @@ import com.ing.modelbank.entity.CustomerTransactions;
  */
 public interface TransactionDetailsService {
 	CustomerTransactions getTransactionDetailsForId(Long id);
+
+	List<CustomerTransactions> getTransactionDetailsforId(String id);
 }

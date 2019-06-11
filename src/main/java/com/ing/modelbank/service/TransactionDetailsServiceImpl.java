@@ -3,6 +3,8 @@
  */
 package com.ing.modelbank.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,12 @@ public class TransactionDetailsServiceImpl implements TransactionDetailsService 
 	
 	public CustomerTransactions getTransactionDetailsForId(Long id) {
 		return fundTransferRepository.findRequestById(id);
+	}
+
+	
+	public List<CustomerTransactions> getTransactionDetailsforId(String id) {
+	
+		return fundTransferRepository.findTransactionById(id);
 	}
 
 }
