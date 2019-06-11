@@ -21,7 +21,6 @@ public class TransactionDetailsServiceImpl implements TransactionDetailsService 
 	FundTransferRepository fundTransferRepository;
 	
 	public CustomerTransactions getTransactionDetailsForId(Long id) {
-		// TODO Auto-generated method stub
 		return fundTransferRepository.findRequestById(id);
 	}
 
