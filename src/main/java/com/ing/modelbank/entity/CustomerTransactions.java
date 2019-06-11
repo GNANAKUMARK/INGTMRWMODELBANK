@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,4 +34,11 @@ public class CustomerTransactions implements Serializable{
 	private Long referenceId;
 	private String status;
 	private LocalDateTime date = LocalDateTime.now();
+	@ManyToOne
+
+    @JoinColumn(name = "Customer_Id")
+
+    @JsonBackReference
+
+    private CustomerDetails customer;
 }

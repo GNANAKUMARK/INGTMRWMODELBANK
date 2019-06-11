@@ -23,7 +23,7 @@ public class TransactionDetailsController {
 	@Autowired
 	 TransactionDetailsService transactionDetailsService;
 	@GetMapping(value = "/transactions/{id}")
-	public ResponseEntity<CustomerTransactions> getTransactionDetailsForId(@PathVariable("id") Long id )
+	public ResponseEntity<CustomerTransactions> getTransactionDetailsForRefId(@PathVariable("id") Long id )
 			throws DataNotFoundException {
 		
 		CustomerTransactions response = transactionDetailsService.getTransactionDetailsForId(id);
@@ -36,7 +36,7 @@ public class TransactionDetailsController {
 	
 	
 	@GetMapping(value = "/transaction/{customer_Id}")
-	public ResponseEntity<List<CustomerTransactions>> getTransactionDetailsForCustomerId(@PathVariable("customer_Id") String customer_Id )
+	public ResponseEntity<List<CustomerTransactions>> getTransactionDetailsForCustomerId(@PathVariable("customer_Id") Long customer_Id )
 			throws DataNotFoundException {
 		
 		List<CustomerTransactions> response = transactionDetailsService.getTransactionDetailsforId(customer_Id);
