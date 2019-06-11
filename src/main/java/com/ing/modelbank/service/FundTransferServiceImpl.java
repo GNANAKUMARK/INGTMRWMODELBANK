@@ -40,10 +40,12 @@ public class FundTransferServiceImpl implements FundTransferService {
 		Random random = new Random();
 		long referenceId = 10000000 + random.nextInt(900000);
 		transaction.setReferenceId(referenceId);
-		repository.save(transaction);
+		CustomerTransactions transaction1=repository.save(transaction);
 		detail.setBalance(detail.getBalance()-transaction.getAmount());
-		
-		return null;
+		repo.save(detail);
+		response.setReferenceId(transaction1.getReferenceId());
+		response.setStatus("Success");
+		return response;
 		}
 		
 	}
