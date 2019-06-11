@@ -1,5 +1,6 @@
 package com.ing.modelbank.service;
 
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,8 @@ public class FundTransferServiceImpl implements FundTransferService {
 	
 	public FundTRansferResponse saveTansaction(FundTRansferRequest request) {
 		FundTRansferResponse response = new FundTRansferResponse();
-		CustomerDetails detail=repo.findByCustomerId(request.getCustomerId()); 
+		CustomerDetails detail=repo.findByCustomerId(request.getCustomerId());
+		
 	
 		if(detail.getBalance()<request.getAmount()) {
 			response.setReferenceId(0L);
@@ -43,11 +45,23 @@ public class FundTransferServiceImpl implements FundTransferService {
 		CustomerTransactions transaction1=repository.save(transaction);
 		detail.setBalance(detail.getBalance()-transaction.getAmount());
 		repo.save(detail);
+		
+		List<CustomerDetails> list = repo.findAll();
+		for (CustomerDetails customerDetails : list) {
+			if(customerDetails.getCustomerId().equalsIgnoreCase(request.getBeneficiaryId())) {
+				Double amount =customerDetails.getBalance()+transaction.getAmount();
+			
+				customerDetails.setBalance(amount);
+				repo.save(customerDetails);
+			}
+		}
 		response.setReferenceId(transaction1.getReferenceId());
 		response.setStatus("Success");
 		return response;
 		}
 		
 	}
+
+	
 
 }
