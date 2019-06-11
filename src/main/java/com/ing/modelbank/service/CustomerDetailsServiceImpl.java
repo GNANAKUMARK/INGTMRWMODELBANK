@@ -3,6 +3,8 @@
  */
 package com.ing.modelbank.service;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,22 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 		customerDetaillsResponse.setCustomerName(customerDetails.getCustomerName());
 		customerDetaillsResponse.setId(customerDetails.getId());
 		return customerDetaillsResponse;
+	}
+
+	@Override
+	public List<CustomerDetails> getBeneficiariesDetails(String customerId) {
+		//CustomerResponse customerResponse = new CustomerResponse();
+		List<CustomerDetails> customerDetails = customerDetailsRepository.findAll();
+		
+		
+		return (List<CustomerDetails>) customerDetails;
+		
+	}
+
+	@Override
+	public List<CustomerDetails> findByAll() {
+		
+		return customerDetailsRepository.findAll();
 	}
 
 }

@@ -11,6 +11,8 @@ import lombok.Setter;
 @NoArgsConstructor
 public class LoginResponse implements Serializable{
 	
+	private String customerId;
+	
 	private String status;
 
 }
