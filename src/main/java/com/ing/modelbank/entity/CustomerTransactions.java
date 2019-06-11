@@ -24,5 +24,6 @@ public class CustomerTransactions implements Serializable{
 	private Double amount;
 	private String comments;
 	private Long referenceId;
+	private String status;
 	private LocalDate date = LocalDate.now();
 }

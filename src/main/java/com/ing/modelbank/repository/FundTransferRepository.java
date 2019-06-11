@@ -3,7 +3,9 @@ package com.ing.modelbank.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.ing.modelbank.entity.CustomerTransactions;
+
 @Repository
-public interface FundTransferRepository extends JpaRepository<Integer, Integer>{
+public interface FundTransferRepository extends JpaRepository<CustomerTransactions, Long>{
 
 }

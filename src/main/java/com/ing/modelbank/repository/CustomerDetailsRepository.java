@@ -13,4 +13,6 @@ import com.ing.modelbank.entity.CustomerDetails;
 @Repository
 public interface CustomerDetailsRepository extends JpaRepository<CustomerDetails, Long> {
 
+	CustomerDetails findByCustomerId(String customerId);
+
 }
