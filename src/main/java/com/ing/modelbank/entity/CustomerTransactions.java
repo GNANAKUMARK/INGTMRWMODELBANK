@@ -2,6 +2,7 @@ package com.ing.modelbank.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,5 +26,5 @@ public class CustomerTransactions implements Serializable{
 	private String comments;
 	private Long referenceId;
 	private String status;
-	private LocalDate date = LocalDate.now();
+	private LocalDateTime date = LocalDateTime.now();
 }
