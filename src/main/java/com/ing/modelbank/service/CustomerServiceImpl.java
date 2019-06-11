@@ -28,6 +28,7 @@ public class CustomerServiceImpl implements CustomerService{
 					throw new DataNotFoundException("Invalid Credentials"); 
 				}
 				response.setStatus("LoginSuccessfully");
+				response.setCustomerId(loginRequest.getCustomerId());
 				return response;
 			
 	}
