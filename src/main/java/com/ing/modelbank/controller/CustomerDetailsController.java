@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(path = "/api")
-public class AccountDetailsController {
-	private static final Logger LOGGER = LogManager.getLogger(AccountDetailsController.class);
+public class CustomerDetailsController {
+	private static final Logger LOGGER = LogManager.getLogger(CustomerDetailsController.class);
 	
 
 }
