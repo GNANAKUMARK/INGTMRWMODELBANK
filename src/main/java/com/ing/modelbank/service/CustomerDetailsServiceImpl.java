@@ -34,7 +34,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 		CustomerDetaillsResponse customerDetaillsResponse = new CustomerDetaillsResponse();
 		CustomerDetails customerDetails = customerDetailsRepository.findByCustomerId(customerId);
 		if (customerDetails == null || customerDetails.getId()==null ) {
-			throw new DataNotFoundException("NO Customer details found for customerId:" + customerId);
+			throw new DataNotFoundException("No Customer details are found for customerId:" + customerId);
 		}
 
 		customerDetaillsResponse.setAccountType(customerDetails.getAccountType());
@@ -48,7 +48,7 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 
 	@Override
 	public List<CustomerDetails> getBeneficiariesDetails(String customerId) {
-		//CustomerResponse customerResponse = new CustomerResponse();
+		
 		List<CustomerDetails> customerDetails = customerDetailsRepository.findAll();
 		
 		

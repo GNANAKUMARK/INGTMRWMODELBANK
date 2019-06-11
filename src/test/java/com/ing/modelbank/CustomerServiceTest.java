@@ -1,7 +1,6 @@
 package com.ing.modelbank;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -20,7 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.ing.modelbank.entity.Customer;
 import com.ing.modelbank.exception.DataNotFoundException;
 import com.ing.modelbank.pojo.LoginRequest;
 import com.ing.modelbank.pojo.LoginResponse;
@@ -54,8 +52,6 @@ public class CustomerServiceTest {
 	
 	@Test(expected = DataNotFoundException.class)
 	public void whileLogin() throws Exception {
-		Customer customer = new Customer();
-
 		LoginResponse response = new LoginResponse();
 		LoginRequest request = new LoginRequest();
 		request.setCustomerId("ING001");

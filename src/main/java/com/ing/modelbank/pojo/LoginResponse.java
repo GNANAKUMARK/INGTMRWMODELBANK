@@ -11,6 +11,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class LoginResponse implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5335934519706969811L;
+
 	private String customerId;
 	
 	private String status;

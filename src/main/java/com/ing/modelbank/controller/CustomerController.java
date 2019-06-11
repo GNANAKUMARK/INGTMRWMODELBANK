@@ -24,7 +24,7 @@ public class CustomerController {
 	@PostMapping("/users")
 	public ResponseEntity<LoginResponse> customerLogin(@RequestBody LoginRequest loginRequest){
 		
-	
+
 		LoginResponse response = customerService.findByCustomerIdAndPassword(loginRequest);
 		if(response.getStatus().equalsIgnoreCase("LoginSuccessfully") && response.getCustomerId().equalsIgnoreCase(loginRequest.getCustomerId())){
 			response.setStatus("Successfully Logged in.....");
