@@ -20,4 +20,5 @@ public class LoginResponse implements Serializable{
 	
 	private String status;
 
+	private Long id;
 }
