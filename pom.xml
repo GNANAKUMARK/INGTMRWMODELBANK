@@ -1,108 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.5.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.ing.modelbank</groupId>
-	<artifactId>INGTMRWMODELBANK</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>INGTMRWMODELBANK</name>
-	<description>ING TMRW MODEL BANK</description>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+## server properties
+server.port=9090
+server.servlet.context-path=/INGTMRWModelBank
 
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.9.2</version>
-		</dependency>
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
 
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.9.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.sonarsource.sonarqube</groupId>
-			<artifactId>sonar-testing-harness</artifactId>
-			<version>7.7</version>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>nexus</id>
-			<url>http://13.233.56.179:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
+spring.datasource.url = jdbc:mysql://localhost:3306/ingbank
+spring.datasource.username = root
+spring.datasource.password = root
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+#spring.datasource.url = jdbc:mysql://10.117.189.73:3306/test
+#spring.datasource.username = root
+#spring.datasource.password = root
 
-</project>
+#spring.datasource.url = jdbc:mysql://13.233.56.179:3306/ingdb
+#spring.datasource.username = inguser1
+#spring.datasource.password = H@ckath0n
+
+## Hibernate Properties
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.show-sql=true
+
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+logging.level.root=info
+logging.level.org.hibernate.SQL=debug
+logging.path = c:/Log
+logging.file= c:/Log/INGTMRWBank.log
+logging.pattern.file= %d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+
+#sonar.host.url=http://35.154.25.173:9000
+#sonar.host.url=http://localhost:9000
+
+## MailProperties
+#spring.mail.host=smtp.gmail.com
+#spring.mail.port=587
+#spring.mail.username=kkrpcs@gmail.com
+#spring.mail.password=
+#spring.mail.properties.mail.smtp.auth=true
+#spring.mail.properties.mail.smtp.starttls.enable=true
+
+
