@@ -39,18 +39,18 @@ public class CustomerDetailsServiceTest {
 		CustomerDetails customerDetails = new CustomerDetails();
 		customerDetails.setId(1l);
 		Mockito.when(repo.findByCustomerId(Matchers.anyObject())).thenReturn(customerDetails);
-		CustomerDetaillsResponse response = service.getCustomerDetails("2l");
+		CustomerDetaillsResponse response = service.getCustomerDetails("2");
 		assertNotNull(response.getId());
 	}
 	
-	/*
-	 * @Test(expected = DataNotFoundException.class) public void
-	 * getCustomerDetailsBadRequest() { CustomerDetails customerDetails = new
-	 * CustomerDetails();
-	 * Mockito.when(repo.findByCustomerId(Matchers.anyObject())).thenReturn(
-	 * customerDetails); CustomerDetaillsResponse response =
-	 * service.getCustomerDetails("2l"); }
-	 */
 	
+	@Test(expected = DataNotFoundException.class)
+	public void getCustomerDetailsException() {
+		CustomerDetails customerDetails = new CustomerDetails();
+		Mockito.when(repo.findByCustomerId(Matchers.anyObject())).thenReturn(customerDetails);
+		CustomerDetaillsResponse response = service.getCustomerDetails("2");
+		assertNotNull(response.getId());
+	}
+
 	
 }
