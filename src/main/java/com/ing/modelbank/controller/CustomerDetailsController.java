@@ -33,7 +33,7 @@ public class CustomerDetailsController {
 	CustomerDetailsService customerDetailsService;
 
 	@GetMapping("/customers/{customerId}")
-	ResponseEntity<CustomerDetaillsResponse> getCustomerDetails(@PathVariable("customerId") Long customerId) {
+	ResponseEntity<CustomerDetaillsResponse> getCustomerDetails(@PathVariable("customerId") String customerId) {
 		LOGGER.info("Inside getCustomerDetails method CustomerDetailsController customerId:" + customerId);
 		CustomerDetaillsResponse customerDetaillsResponse = customerDetailsService.getCustomerDetails(customerId);
 		return new ResponseEntity<>(customerDetaillsResponse, HttpStatus.OK);

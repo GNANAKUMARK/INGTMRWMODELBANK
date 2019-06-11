@@ -12,5 +12,5 @@ import com.ing.modelbank.pojo.CustomerDetaillsResponse;
  *
  */
 public interface CustomerDetailsService {
-	CustomerDetaillsResponse getCustomerDetails(Long customerId);
+	CustomerDetaillsResponse getCustomerDetails(String customerId);
 }

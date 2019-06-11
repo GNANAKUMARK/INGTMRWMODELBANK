@@ -27,10 +27,10 @@ public class CustomerDetailsServiceImpl implements CustomerDetailsService {
 	CustomerDetailsRepository customerDetailsRepository;
 
 	@Override
-	public CustomerDetaillsResponse getCustomerDetails(Long customerId) {
+	public CustomerDetaillsResponse getCustomerDetails(String customerId) {
 		LOGGER.debug("inside CustomerDetailsServiceImpl ::getCustomerDetails() customerId: " + customerId);
 		CustomerDetaillsResponse customerDetaillsResponse = new CustomerDetaillsResponse();
-		CustomerDetails customerDetails = customerDetailsRepository.findById(customerId).orElse(null);
+		CustomerDetails customerDetails = customerDetailsRepository.findByCustomerId(customerId);
 		if (customerDetails == null || customerDetails.getId().equals(null)) {
 			throw new DataNotFoundException("NO Customer details found for customerId:" + customerId);
 		}
