@@ -15,5 +15,5 @@ import com.ing.modelbank.entity.CustomerTransactions;
 public interface TransactionDetailsService {
 	CustomerTransactions getTransactionDetailsForId(Long id);
 
-	List<CustomerTransactions> getTransactionDetailsforId(String id);
+	List<CustomerTransactions> getTransactionDetailsforId(Long customer_Id);
 }

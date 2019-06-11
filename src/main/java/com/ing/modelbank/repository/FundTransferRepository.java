@@ -13,6 +13,6 @@ public interface FundTransferRepository extends JpaRepository<CustomerTransactio
 	@Query(value = "select * from customer_transactions where reference_id =?1",nativeQuery = true)
 
     CustomerTransactions findRequestById(Long id);
-	@Query(value = "select * from customer_transactions where from_account=?1",nativeQuery = true)
-	List<CustomerTransactions> findTransactionById(String id);
+	@Query(value = "select * from customer_transactions where  customer_id=?1",nativeQuery = true)
+	List<CustomerTransactions> findTransactionById(Long id);
 }

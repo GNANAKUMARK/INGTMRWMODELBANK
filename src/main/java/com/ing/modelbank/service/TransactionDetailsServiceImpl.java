@@ -27,7 +27,7 @@ public class TransactionDetailsServiceImpl implements TransactionDetailsService 
 	}
 
 	
-	public List<CustomerTransactions> getTransactionDetailsforId(String id) {
+	public List<CustomerTransactions> getTransactionDetailsforId(Long id) {
 	
 		return fundTransferRepository.findTransactionById(id);
 	}

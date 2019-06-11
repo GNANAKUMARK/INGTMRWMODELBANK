@@ -5,11 +5,17 @@ package com.ing.modelbank.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,6 +51,10 @@ public class CustomerDetails implements Serializable {
 	private String customerId;
 	
 	private LocalDate creationDate;
+	
+	@OneToMany(fetch = FetchType.EAGER,mappedBy = "customer")
+    @JsonManagedReference
+    private  List<CustomerTransactions> transactions;
 	
 	
 

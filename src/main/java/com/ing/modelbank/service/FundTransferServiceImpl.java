@@ -40,6 +40,7 @@ public class FundTransferServiceImpl implements FundTransferService {
 		transaction.setToAccount(request.getBeneficiaryId());
 		transaction.setAmount(request.getAmount());
 		transaction.setComments(request.getRemarks());
+		transaction.setCustomer(detail);
 		
 		Long referenceId = (long) (10000000 + random.nextInt(900000));
 		transaction.setReferenceId(referenceId);
